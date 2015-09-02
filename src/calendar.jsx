@@ -5,7 +5,6 @@ var map = require( "lodash/collection/map" );
 var some = require( "lodash/collection/some" );
 
 var Calendar = React.createClass( {
-  mixins: [ require( "react-onclickoutside" ) ],
 
   propTypes: {
     weekdays: React.PropTypes.array.isRequired,

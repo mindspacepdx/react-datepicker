@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("react"), require("tether"), require("moment"), require("react-onclickoutside"));
+		module.exports = factory(require("react"), require("tether"), require("moment"));
 	else if(typeof define === 'function' && define.amd)
-		define(["react", "tether", "moment", "react-onclickoutside"], factory);
+		define(["react", "tether", "moment"], factory);
 	else if(typeof exports === 'object')
-		exports["DatePicker"] = factory(require("react"), require("tether"), require("moment"), require("react-onclickoutside"));
+		exports["DatePicker"] = factory(require("react"), require("tether"), require("moment"));
 	else
-		root["DatePicker"] = factory(root["React"], root["Tether"], root["moment"], root["OnClickOutside"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_3__, __WEBPACK_EXTERNAL_MODULE_7__, __WEBPACK_EXTERNAL_MODULE_59__) {
+		root["DatePicker"] = factory(root["React"], root["Tether"], root["moment"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_3__, __WEBPACK_EXTERNAL_MODULE_7__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -60,9 +60,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	var Popover = __webpack_require__(2);
 	var DateUtil = __webpack_require__(4);
 	var Calendar = __webpack_require__(5);
-	var DateInput = __webpack_require__(60);
+	var DateInput = __webpack_require__(59);
 	var moment = __webpack_require__(7);
-	var isEqual = __webpack_require__(61);
+	var isEqual = __webpack_require__(60);
 
 	var DatePicker = React.createClass({
 	  displayName: "DatePicker",
@@ -448,8 +448,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var Calendar = React.createClass({
 	  displayName: "Calendar",
-
-	  mixins: [__webpack_require__(59)],
 
 	  propTypes: {
 	    weekdays: React.PropTypes.array.isRequired,
@@ -2662,12 +2660,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 59 */
-/***/ function(module, exports) {
-
-	module.exports = __WEBPACK_EXTERNAL_MODULE_59__;
-
-/***/ },
-/* 60 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -2759,7 +2751,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = DateInput;
 
 /***/ },
-/* 61 */
+/* 60 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var baseIsEqual = __webpack_require__(13),
