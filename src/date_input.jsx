@@ -22,9 +22,9 @@ var DateInput = React.createClass( {
 
   toggleFocus: function( focus ) {
     if ( focus ) {
-      React.findDOMNode( this.refs.input ).focus();
+      React.getDOMNode( this.refs.input ).focus();
     } else {
-      React.findDOMNode( this.refs.input ).blur();
+      React.getDOMNode( this.refs.input ).blur();
     }
   },
 
