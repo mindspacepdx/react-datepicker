@@ -1,19 +1,7 @@
 "use strict";
 
-var _ = require( "lodash" );
+var _ = require( "underscore" );
 var webpack = require( "webpack" );
-
-var mergeWebpackConfig = function( config ) {
-
-  // Load webpackConfig only when using `grunt:webpack`
-  // load of grunt tasks is faster
-  var webpackConfig = require( "./webpack.config" );
-  return _.merge( {}, webpackConfig, config, function( a, b ) {
-    if ( _.isArray( a ) ) {
-      return a.concat( b );
-    }
-  } );
-};
 
 module.exports = function( grunt ) {
   grunt.initConfig( {
@@ -24,7 +12,7 @@ module.exports = function( grunt ) {
           "dist/react-datepicker.css": "src/stylesheets/datepicker.scss"
         },
         options: {
-          sourcemap: "none",
+          sourcemap: "auto",
           style: "expanded"
         }
       },
@@ -33,7 +21,7 @@ module.exports = function( grunt ) {
           "dist/react-datepicker.min.css": "src/stylesheets/datepicker.scss"
         },
         options: {
-          sourcemap: "none",
+          sourcemap: "auto",
           style: "compressed"
         }
       }
@@ -67,14 +55,6 @@ module.exports = function( grunt ) {
       }
     },
 
-    scsslint: {
-      files: "src/stylesheets/*.scss",
-      options: {
-        config: ".scss-lint.yml",
-        colorizeOutput: true
-      }
-    },
-
     karma: {
       unit: {
         configFile: "karma.conf.js",
@@ -96,12 +76,12 @@ module.exports = function( grunt ) {
     },
 
     webpack: {
-      unmin: mergeWebpackConfig( {
+      unmin: {
         output: {
           filename: "react-datepicker.js"
         }
-      } ),
-      min: mergeWebpackConfig( {
+      },
+      min: {
         output: {
           filename: "react-datepicker.min.js"
         },
@@ -112,18 +92,17 @@ module.exports = function( grunt ) {
             }
           } )
         ]
-      } )
+      }
     }
   } );
 
   grunt.loadNpmTasks( "grunt-contrib-sass" );
-  grunt.loadNpmTasks( "grunt-scss-lint" );
   grunt.loadNpmTasks( "grunt-contrib-watch" );
   grunt.loadNpmTasks( "grunt-webpack" );
   grunt.loadNpmTasks( "grunt-karma" );
   grunt.loadNpmTasks( "grunt-jscs" );
 
-  grunt.registerTask( "default", [ "watch", "scsslint" ] );
-  grunt.registerTask( "travis", [ "jscs", "karma", "scsslint" ] );
-  grunt.registerTask( "build", [ "scsslint", "webpack", "sass" ] );
+  grunt.registerTask( "default", [ "watch" ] );
+  grunt.registerTask( "travis", [ "jscs", "karma" ] );
+  grunt.registerTask( "build", [ "webpack", "sass" ] );
 };

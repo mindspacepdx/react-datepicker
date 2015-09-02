@@ -37,27 +37,11 @@ module.exports = {
       }
     },
     {
-      'react-onclickoutside': {
-        root: 'OnClickOutside',
-        commonjs2: 'react-onclickoutside',
-        commonjs: 'react-onclickoutside',
-        amd: 'react-onclickoutside'
-      }
-    },
-    {
       'tether': {
         root: 'Tether',
         commonjs2: 'tether',
         commonjs: 'tether',
         amd: 'tether'
-      }
-    },
-    {
-      'lodash': {
-        root: '_',
-        commonjs2: 'lodash',
-        commonjs: 'lodash',
-        amd: 'lodash'
       }
     }
   ],
