@@ -2697,9 +2697,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  toggleFocus: function toggleFocus(focus) {
 	    if (focus) {
-	      React.findDOMNode(this.refs.input).focus();
+	      this.getDOMNode(this.refs.input).focus();
 	    } else {
-	      React.findDOMNode(this.refs.input).blur();
+	      this.getDOMNode(this.refs.input).blur();
 	    }
 	  },
 
