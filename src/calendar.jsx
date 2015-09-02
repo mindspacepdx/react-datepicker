@@ -1,11 +1,9 @@
 var React = require( "react" );
 var Day = require( "./day" );
 var DateUtil = require( "./util/date" );
-var map = require( "lodash/collection/map" );
-var some = require( "lodash/collection/some" );
+var _ = require( "underscore" );
 
 var Calendar = React.createClass( {
-  mixins: [ require( "react-onclickoutside" ) ],
 
   propTypes: {
     weekdays: React.PropTypes.array.isRequired,
@@ -103,13 +101,13 @@ var Calendar = React.createClass( {
         disabled;
 
     if ( this.props.excludeDates && Array.isArray( this.props.excludeDates ) ) {
-      excludeDates = map( this.props.excludeDates, function( date ) {
+      excludeDates = _.map( this.props.excludeDates, function( date ) {
         return new DateUtil( date ).safeClone();
       } );
     }
 
     disabled = day.isBefore( minDate ) || day.isAfter( maxDate ) ||
-      some( excludeDates, function( xDay ) { return day.sameDay( xDay ); } );
+      _.some( excludeDates, function( xDay ) { return day.sameDay( xDay ); } );
 
     return (
       <Day

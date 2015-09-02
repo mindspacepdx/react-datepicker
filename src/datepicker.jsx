@@ -4,7 +4,7 @@ var DateUtil = require( "./util/date" );
 var Calendar = require( "./calendar" );
 var DateInput = require( "./date_input" );
 var moment = require( "moment" );
-var isEqual = require( "lodash/lang/isEqual" );
+var _ = require( "underscore" );
 
 var DatePicker = React.createClass( {
 
@@ -46,7 +46,7 @@ var DatePicker = React.createClass( {
   },
 
   shouldComponentUpdate: function( nextProps, nextState ) {
-    return !( isEqual( nextProps, this.props ) && isEqual( nextState, this.state ) );
+    return !( _.isEqual( nextProps, this.props ) && _.isEqual( nextState, this.state ) );
   },
 
   getValue: function() {
